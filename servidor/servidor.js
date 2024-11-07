@@ -1,3 +1,17 @@
+const mongoose = require('mongoose');
+
+const mongoUri = process.env.MONGODB_URI;
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log('Conectado a MongoDB correctamente.');
+})
+.catch((error) => {
+  console.error('Error al conectar a MongoDB:', error);
+});
+
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
